@@ -127,4 +127,15 @@ export class UsersService {
         });
     return !!user;
   }
+
+  async findUserById(id: number) {
+    const profile = await this.prisma.user.findUnique({
+      where: {
+        id
+      },
+    })
+    return profile
+  }
+
+
 }
